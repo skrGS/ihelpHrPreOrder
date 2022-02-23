@@ -25,12 +25,12 @@ const PersonRegisterScreen = () => {
 
   const [isEmployee, setIsEmployee] = useState(false);
   const [isEmployer, setIsEmployer] = useState(false);
-  const [lastName, setLastName] = useState("Азжаргал12");
-  const [firstName, setFirstName] = useState("Цэлмэн12");
-  const [email, setEmail] = useState("tseurmendsda@gmail.com");
-  const [phone, setPhone] = useState("45454545");
-  const [password, setPassword] = useState("123456");
-  const [password1, setPassword1] = useState("123456");
+  const [lastName, setLastName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [password1, setPassword1] = useState("");
   const [data, setData] = useState([]);
   const [point] = useState(10);
   const signUpHandler = () => {

@@ -22,8 +22,8 @@ const CompanyLoginScreen = () => {
   const navigation = useNavigation();
   const [visible, setVisible] = useState(false);
 
-  const [email, setEmail] = useState("tserumen1d@gmail.com");
-  const [password, setPassword] = useState("123456");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [data, setData] = useState([]);
 
   const signUpHandler = () => {

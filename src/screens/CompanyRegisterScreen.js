@@ -23,11 +23,11 @@ const CompanyRegisterScreen = () => {
   const [visible, setVisible] = useState(false);
   const [isEmployee, setIsEmployee] = useState(false);
   const [isEmployer, setIsEmployer] = useState(false);
-  const [name, setName] = useState("Tserumen1122");
-  const [email, setEmail] = useState("tseddd112d@gmail.com");
-  const [phone, setPhone] = useState("05050522");
-  const [password, setPassword] = useState("123456");
-  const [password1, setPassword1] = useState("123456");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [password1, setPassword1] = useState("");
   const [data, setData] = useState([]);
   const [point] = useState(50);
   const signUpHandler = () => {

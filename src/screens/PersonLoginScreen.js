@@ -22,8 +22,8 @@ const PersonLoginScreen = () => {
   const navigation = useNavigation();
   const [visible, setVisible] = useState(false);
 
-  const [phone, setPhone] = useState("21212121");
-  const [password, setPassword] = useState("123456");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
   const [data, setData] = useState([]);
 
   const signUpHandler = () => {
