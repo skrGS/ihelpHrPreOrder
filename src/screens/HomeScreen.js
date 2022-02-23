@@ -11,27 +11,44 @@ import { useNavigation } from "@react-navigation/native";
 const HomeScreen = () => {
   const navigation = useNavigation();
   return (
-    <View style={{ flex: 1 }}>
+    <View
+      style={{
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "space-evenly",
+        paddingVertical: 10,
+      }}
+    >
       <TouchableOpacity
-        style={{ flex: 1 }}
+        style={{ flex: 0.5 }}
         onPress={() => navigation.navigate("CompanyRegisterScreen")}
       >
         <ImageBackground
           source={require("../../assets/ihelp/HomeCompany.png")}
-          style={{ justifyContent: "center", flex: 1, top: 30 }}
+          style={{
+            flex: 1,
+            justifyContent: "center",
+          }}
           resizeMode="contain"
         >
+          <Text style={{ flex: 1 }}></Text>
           <Image
             source={require("../../assets/ihelp/logocompany.png")}
-            style={{ width: 200, height: 100, alignSelf: "center", top: 20 }}
+            style={{
+              alignSelf: "center",
+              justifyContent: "center",
+              flex: 0.8,
+              resizeMode: "contain",
+            }}
           />
           <Text
             style={{
               color: "white",
               fontSize: 30,
               textAlign: "center",
-              top: 100,
               fontWeight: "300",
+              top: 50,
+              flex: 1,
             }}
           >
             Компани
@@ -39,25 +56,35 @@ const HomeScreen = () => {
         </ImageBackground>
       </TouchableOpacity>
       <TouchableOpacity
-        style={{ flex: 1 }}
+        style={{ flex: 0.5 }}
         onPress={() => navigation.navigate("PersonRegisterScreen")}
       >
         <ImageBackground
           source={require("../../assets/ihelp/HomePerson.png")}
-          style={{ justifyContent: "center", flex: 1, bottom: 30 }}
+          style={{
+            flex: 1,
+            justifyContent: "center",
+          }}
           resizeMode="contain"
         >
+          <Text style={{ flex: 1 }}></Text>
           <Image
             source={require("../../assets/ihelp/logoperson.png")}
-            style={{ width: 212, height: 100, alignSelf: "center", top: 20 }}
+            style={{
+              alignSelf: "center",
+              justifyContent: "center",
+              flex: 0.8,
+              resizeMode: "contain",
+            }}
           />
           <Text
             style={{
               color: "white",
               fontSize: 30,
               textAlign: "center",
-              top: 100,
               fontWeight: "300",
+              top: 50,
+              flex: 1,
             }}
           >
             Хувь хүн

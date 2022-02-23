@@ -55,7 +55,7 @@ const PersonRegisterScreen = () => {
       Alert.alert("Та и-мэйл хаягаа бичнэ үү");
       return;
     }
-    if (phone.length === 0) {
+    if (phone.length < 6) {
       Alert.alert("Та утасны дугаараа бичнэ үү");
       return;
     }
@@ -191,85 +191,104 @@ const PersonRegisterScreen = () => {
               style={{
                 flexDirection: "row",
                 justifyContent: "center",
-                paddingTop: 20,
               }}
             >
-              <CheckBox
-                center
-                checkedIcon={
-                  <Fontisto
-                    name="checkbox-active"
-                    color="#765097"
-                    size={18}
-                    iconStyle={{ marginRight: 10 }}
-                  />
-                }
-                uncheckedIcon={
-                  <Fontisto
-                    name="checkbox-passive"
-                    color="grey"
-                    size={18}
-                    iconStyle={{ marginRight: 10 }}
-                  />
-                }
-                checked={isEmployer}
+              <TouchableOpacity
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  marginVertical: 10,
+                  marginHorizontal: 10,
+                }}
                 onPress={() => setIsEmployer(!isEmployer)}
-              />
-              {isEmployer === false ? (
-                <Text style={styles.checkBoxText}> Ажил олгогч</Text>
-              ) : (
-                <Text
-                  style={{
-                    fontSize: 15,
-                    fontWeight: "500",
-                    right: 20,
-                    top: 15,
-                    color: "#765097",
-                  }}
-                >
-                  {" "}
-                  Ажил олгогч
-                </Text>
-              )}
-              <CheckBox
-                center
-                checkedIcon={
-                  <Fontisto
-                    name="checkbox-active"
-                    // type="material"
-                    color="#765097"
-                    size={18}
-                    iconStyle={{ marginRight: 10 }}
-                  />
-                }
-                uncheckedIcon={
-                  <Fontisto
-                    name="checkbox-passive"
-                    // type="material"
-                    color="grey"
-                    size={18}
-                    iconStyle={{ marginRight: 10 }}
-                  />
-                }
-                checked={isEmployee}
+              >
+                <CheckBox
+                  center
+                  checkedIcon={
+                    <Fontisto
+                      name="checkbox-active"
+                      color="#765097"
+                      size={18}
+                      iconStyle={{ marginRight: 10 }}
+                    />
+                  }
+                  uncheckedIcon={
+                    <Fontisto
+                      name="checkbox-passive"
+                      color="grey"
+                      size={18}
+                      iconStyle={{ marginRight: 10 }}
+                    />
+                  }
+                  checked={isEmployer}
+                  onPress={() => setIsEmployer(!isEmployer)}
+                />
+                {isEmployer === false ? (
+                  <Text style={styles.checkBoxText}> Ажил олгогч</Text>
+                ) : (
+                  <Text
+                    style={{
+                      fontSize: 15,
+                      fontWeight: "500",
+                      right: 20,
+                      top: 15,
+                      color: "#765097",
+                    }}
+                  >
+                    {" "}
+                    Ажил олгогч
+                  </Text>
+                )}
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  marginVertical: 10,
+                  marginHorizontal: 10,
+                }}
                 onPress={() => setIsEmployee(!isEmployee)}
-              />
-              {isEmployee === false ? (
-                <Text style={styles.checkBoxText}> Ажил хайгч</Text>
-              ) : (
-                <Text
-                  style={{
-                    fontSize: 15,
-                    fontWeight: "500",
-                    right: 20,
-                    top: 15,
-                    color: "#765097",
-                  }}
-                >
-                  {" "}
-                  Ажил хайгч
-                </Text>
-              )}
+              >
+                <CheckBox
+                  center
+                  checkedIcon={
+                    <Fontisto
+                      name="checkbox-active"
+                      // type="material"
+                      color="#765097"
+                      size={18}
+                      iconStyle={{ marginRight: 10 }}
+                    />
+                  }
+                  uncheckedIcon={
+                    <Fontisto
+                      name="checkbox-passive"
+                      // type="material"
+                      color="grey"
+                      size={18}
+                      iconStyle={{ marginRight: 10 }}
+                    />
+                  }
+                  checked={isEmployee}
+                  onPress={() => setIsEmployee(!isEmployee)}
+                />
+                {isEmployee === false ? (
+                  <Text style={styles.checkBoxText}> Ажил хайгч</Text>
+                ) : (
+                  <Text
+                    style={{
+                      fontSize: 15,
+                      fontWeight: "500",
+                      right: 20,
+                      top: 15,
+                      color: "#765097",
+                    }}
+                  >
+                    {" "}
+                    Ажил хайгч
+                  </Text>
+                )}
+              </TouchableOpacity>
             </View>
           </View>
           <View style={{ flex: 1 }}>

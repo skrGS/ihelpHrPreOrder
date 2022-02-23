@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   ScrollView,
   Alert,
+  KeyboardAvoidingView,
+  Platform,
 } from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -53,152 +55,162 @@ const PersonLoginScreen = () => {
       });
   };
   return (
-    <View style={{ flex: 1 }}>
-      <AntDesign
-        name="arrowleft"
-        size={30}
-        color="#ffffff"
-        style={{
-          position: "absolute",
-          top: 50,
-          left: 10,
-          zIndex: 2,
-        }}
-        onPress={() => navigation.goBack()}
-      />
-      <ImageBackground
-        source={require("../../assets/ihelp/personhead.png")}
-        style={{ flex: 0.4, height: 220 }}
-      >
-        <Image
-          source={require("../../assets/ihelp/logo.png")}
-          style={{ width: 250, height: 90, alignSelf: "center", top: 65 }}
-        />
-        <View
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={{ flex: 1 }}
+    >
+      <ScrollView style={{ flex: 1 }}>
+        <AntDesign
+          name="arrowleft"
+          size={30}
+          color="#ffffff"
           style={{
-            backgroundColor: "white",
-            top: 80,
-            marginHorizontal: 100,
-            borderRadius: 50,
-            shadowColor: "#000",
-            shadowOffset: {
-              width: 0,
-              height: 5,
-            },
-            shadowOpacity: 0.34,
-            shadowRadius: 6.27,
-            elevation: 10,
-            padding: 6,
+            position: "absolute",
+            top: 50,
+            left: 10,
+            zIndex: 2,
           }}
+          onPress={() => navigation.goBack()}
+        />
+        <ImageBackground
+          source={require("../../assets/ihelp/personhead.png")}
+          style={{ flex: 1, height: 220 }}
+          resizeMode="cover"
         >
-          <Text
+          <Image
+            source={require("../../assets/ihelp/logo.png")}
+            style={{ width: 250, height: 90, alignSelf: "center", top: 65 }}
+          />
+          <View
             style={{
-              textAlign: "center",
-              fontSize: 25,
-              color: "#765097",
+              backgroundColor: "white",
+              top: 80,
+              marginHorizontal: 100,
+              borderRadius: 50,
+              shadowColor: "#000",
+              shadowOffset: {
+                width: 0,
+                height: 5,
+              },
+              shadowOpacity: 0.34,
+              shadowRadius: 6.27,
+              elevation: 10,
+              padding: 6,
             }}
           >
-            Person
-          </Text>
-        </View>
-      </ImageBackground>
-      <ScrollView style={{ top: 50 }}>
-        <View style={{ flex: 1 }}>
-          <Text style={styles.inputHeadText}>Бүртгэлтэй утасны дугаар:</Text>
-          <MyTextInput
-            placeholder="Утасны дугаараа оруулна уу"
-            value={phone}
-            onChangeText={setPhone}
-          />
-
-          <Text style={styles.inputHeadText}>Нууц үг:</Text>
-          <MyTextInput
-            placeholder="Нууц үгээ оруулна уу"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry={true}
-          />
-        </View>
-        <View style={{ flex: 1, top: 10 }}>
-          <TouchableOpacity style={{ flex: 1 }} onPress={signUpHandler}>
-            <ImageBackground
-              source={require("../../assets/ihelp/personbutton.png")}
-              style={{ height: 100 }}
-            >
-              <Text
-                style={{
-                  top: 45,
-                  fontSize: 18,
-                  color: "white",
-                  textAlign: "center",
-                }}
-              >
-                Нэвтрэх
-              </Text>
-            </ImageBackground>
-          </TouchableOpacity>
-          <Text
-            style={{
-              textAlign: "center",
-              fontSize: 15,
-              position: "absolute",
-              top: 100,
-              alignSelf: "center",
-            }}
-          >
-            Бүртгүүлэх бол{" "}
             <Text
-              style={{ color: "#765097" }}
-              onPress={() => navigation.navigate("PersonRegisterScreen")}
+              style={{
+                textAlign: "center",
+                fontSize: 25,
+                color: "#765097",
+              }}
             >
-              энд дар
-            </Text>{" "}
-          </Text>
-        </View>
-      </ScrollView>
-      <Overlay isVisible={visible} style={{ paddingHorizontal: 100 }}>
-        <View style={{ padding: 10 }}>
-          <Text style={styles.textPrimary}>Бүртгэл үүссэн</Text>
-          <Text style={styles.textSecondary}>
-            Овог нэр:{" "}
-            <Text style={{ color: "black", fontWeight: "500" }}>
-              {data.lastName} {data.firstName}
+              Person
             </Text>
-          </Text>
-          <Text style={styles.textSecondary}>
-            Утасны дугаар:
-            <Text style={{ color: "black", fontWeight: "500" }}>
-              {" "}
-              {data.phone}
-            </Text>{" "}
-          </Text>
+          </View>
+        </ImageBackground>
 
-          <Text style={styles.textSecondary}>
-            И-мэйл хаяг:{" "}
-            <Text style={{ color: "black", fontWeight: "500" }}>
-              {data.email}
-            </Text>{" "}
-          </Text>
-          <Text
-            style={{
-              marginBottom: 10,
-              textAlign: "center",
-              fontSize: 17,
-              color: "green",
-            }}
-          >
-            Таны пойнт:{" "}
-            <Text style={{ fontWeight: "bold" }}>{data.point} ipoint </Text>
-          </Text>
+        <View style={{ bottom: 11, flex: 1 }}>
+          <View>
+            <Text style={styles.inputHeadText}>Утас:</Text>
+            <MyTextInput
+              placeholder="Утасны дугаараа оруулна уу!"
+              value={phone}
+              onChangeText={setPhone}
+            />
 
-          <Button
-            title="Буцах"
-            onPress={() => navigation.navigate("HomeScreen")}
-            style={{ paddingVertical: 20 }}
-          />
+            <Text style={styles.inputHeadText}>Нууц үг:</Text>
+            <MyTextInput
+              placeholder="Нууц үгээ оруулна уу!"
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry={true}
+            />
+          </View>
+          <View style={{ flex: 1 }}>
+            <TouchableOpacity
+              style={{ flex: 1, bottom: 20 }}
+              onPress={signUpHandler}
+            >
+              <ImageBackground
+                source={require("../../assets/ihelp/personbutton.png")}
+                style={{ height: 100 }}
+              >
+                <Text
+                  style={{
+                    top: 45,
+                    fontSize: 18,
+                    color: "white",
+                    textAlign: "center",
+                  }}
+                >
+                  Нэвтрэх
+                </Text>
+              </ImageBackground>
+            </TouchableOpacity>
+            <Text
+              style={{
+                textAlign: "center",
+                fontSize: 15,
+                position: "absolute",
+                top: 80,
+                alignSelf: "center",
+              }}
+            >
+              Бүртгүүлэх бол{" "}
+              <Text
+                style={{ color: "#765097" }}
+                onPress={() => navigation.navigate("PersonRegisterScreen")}
+              >
+                энд дар
+              </Text>{" "}
+            </Text>
+          </View>
         </View>
-      </Overlay>
-    </View>
+        <Overlay isVisible={visible} style={{ paddingHorizontal: 100 }}>
+          <View style={{ padding: 10 }}>
+            <Text style={styles.textPrimary}>Бүртгэл үүссэн</Text>
+            <Text style={styles.textSecondary}>
+              Овог нэр:{" "}
+              <Text style={{ color: "black", fontWeight: "500" }}>
+                {data.lastName} {data.firstName}
+              </Text>
+            </Text>
+            <Text style={styles.textSecondary}>
+              Утасны дугаар:
+              <Text style={{ color: "black", fontWeight: "500" }}>
+                {" "}
+                {data.phone}
+              </Text>{" "}
+            </Text>
+
+            <Text style={styles.textSecondary}>
+              И-мэйл хаяг:{" "}
+              <Text style={{ color: "black", fontWeight: "500" }}>
+                {data.email}
+              </Text>{" "}
+            </Text>
+            <Text
+              style={{
+                marginBottom: 10,
+                textAlign: "center",
+                fontSize: 17,
+                color: "green",
+              }}
+            >
+              Таны пойнт:{" "}
+              <Text style={{ fontWeight: "bold" }}>{data.point} ipoint </Text>
+            </Text>
+
+            <Button
+              title="Буцах"
+              onPress={() => navigation.navigate("HomeScreen")}
+              style={{ paddingVertical: 20 }}
+            />
+          </View>
+        </Overlay>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 

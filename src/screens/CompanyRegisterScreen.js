@@ -23,9 +23,9 @@ const CompanyRegisterScreen = () => {
   const [visible, setVisible] = useState(false);
   const [isEmployee, setIsEmployee] = useState(false);
   const [isEmployer, setIsEmployer] = useState(false);
-  const [name, setName] = useState("Tserumen1");
-  const [email, setEmail] = useState("tserumen1d@gmail.com");
-  const [phone, setPhone] = useState("99110504");
+  const [name, setName] = useState("Tserumen1122");
+  const [email, setEmail] = useState("tseddd112d@gmail.com");
+  const [phone, setPhone] = useState("05050522");
   const [password, setPassword] = useState("123456");
   const [password1, setPassword1] = useState("123456");
   const [data, setData] = useState([]);
@@ -33,6 +33,10 @@ const CompanyRegisterScreen = () => {
   const signUpHandler = () => {
     if (password !== password1) {
       Alert.alert("Нууц үгнүүд хоорондоо таарахгүй байна!");
+      return;
+    }
+    if (password.length < 6) {
+      Alert.alert("Нууц үг хамгийн багадаа 6 оронтой байна");
       return;
     }
     if (name.length === 0) {
@@ -43,7 +47,7 @@ const CompanyRegisterScreen = () => {
       Alert.alert("Та и-мэйл хаягаа бичнэ үү");
       return;
     }
-    if (phone.length === 0) {
+    if (phone.length < 8) {
       Alert.alert("Та утасны дугаараа бичнэ үү");
       return;
     }
@@ -97,17 +101,17 @@ const CompanyRegisterScreen = () => {
         />
         <ImageBackground
           source={require("../../assets/ihelp/companyhead.png")}
-          style={{ flex: 2, height: 230 }}
+          style={{ flex: 1, height: 220 }}
+          resizeMode="cover"
         >
           <Image
             source={require("../../assets/ihelp/logo.png")}
-            style={{ width: 250, height: 90, alignSelf: "center", top: 70 }}
+            style={{ width: 250, height: 90, alignSelf: "center", top: 65 }}
           />
-
           <View
             style={{
               backgroundColor: "white",
-              top: 88,
+              top: 80,
               marginHorizontal: 100,
               borderRadius: 50,
               shadowColor: "#000",
@@ -132,11 +136,12 @@ const CompanyRegisterScreen = () => {
             </Text>
           </View>
         </ImageBackground>
-        <View style={{ top: 15 }}>
+
+        <View style={{ bottom: 11, flex: 1 }}>
           <View>
             <Text style={styles.inputHeadText}>Компанийн нэр:</Text>
             <MyTextInput
-              placeholder="Компанийн нэрээ оруулна уу!"
+              placeholder="Өөрийн нэрээ оруулна уу!"
               value={name}
               onChangeText={setName}
             />
@@ -171,91 +176,111 @@ const CompanyRegisterScreen = () => {
               style={{
                 flexDirection: "row",
                 justifyContent: "center",
-                paddingTop: 20,
               }}
             >
-              <CheckBox
-                center
-                checkedIcon={
-                  <Fontisto
-                    name="checkbox-active"
-                    // type="material"
-                    color="#4682B4"
-                    size={18}
-                    iconStyle={{ marginRight: 10 }}
-                  />
-                }
-                uncheckedIcon={
-                  <Fontisto
-                    name="checkbox-passive"
-                    // type="material"
-                    color="grey"
-                    size={18}
-                    iconStyle={{ marginRight: 10 }}
-                  />
-                }
-                checked={isEmployer}
+              <TouchableOpacity
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  marginVertical: 10,
+                  marginHorizontal: 10,
+                }}
                 onPress={() => setIsEmployer(!isEmployer)}
-              />
-              {isEmployer === false ? (
-                <Text style={styles.checkBoxText}> Ажил олгогч </Text>
-              ) : (
-                <Text
-                  style={{
-                    fontSize: 15,
-                    fontWeight: "500",
-                    right: 20,
-                    top: 15,
-                    color: "#4682B4",
-                  }}
-                >
-                  {" "}
-                  Ажил олгогч{" "}
-                </Text>
-              )}
-              <CheckBox
-                center
-                checkedIcon={
-                  <Fontisto
-                    name="checkbox-active"
-                    // type="material"
-                    color="#4682B4"
-                    size={18}
-                    iconStyle={{ marginRight: 10 }}
-                  />
-                }
-                uncheckedIcon={
-                  <Fontisto
-                    name="checkbox-passive"
-                    // type="material"
-                    color="grey"
-                    size={18}
-                    iconStyle={{ marginRight: 10 }}
-                  />
-                }
-                checked={isEmployee}
+              >
+                <CheckBox
+                  center
+                  checkedIcon={
+                    <Fontisto
+                      name="checkbox-active"
+                      color="#4682B4"
+                      size={18}
+                      iconStyle={{ marginRight: 10 }}
+                    />
+                  }
+                  uncheckedIcon={
+                    <Fontisto
+                      name="checkbox-passive"
+                      color="grey"
+                      size={18}
+                      iconStyle={{ marginRight: 10 }}
+                    />
+                  }
+                  checked={isEmployer}
+                  onPress={() => setIsEmployer(!isEmployer)}
+                />
+                {isEmployer === false ? (
+                  <Text style={styles.checkBoxText}> Ажил олгогч</Text>
+                ) : (
+                  <Text
+                    style={{
+                      fontSize: 15,
+                      fontWeight: "500",
+                      right: 20,
+                      top: 15,
+                      color: "#4682B4",
+                    }}
+                  >
+                    {" "}
+                    Ажил олгогч
+                  </Text>
+                )}
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  marginVertical: 10,
+                  marginHorizontal: 10,
+                }}
                 onPress={() => setIsEmployee(!isEmployee)}
-              />
-              {isEmployee === false ? (
-                <Text style={styles.checkBoxText}> Ажил хайгч </Text>
-              ) : (
-                <Text
-                  style={{
-                    fontSize: 15,
-                    fontWeight: "500",
-                    right: 20,
-                    top: 15,
-                    color: "#4682B4",
-                  }}
-                >
-                  {" "}
-                  Ажил хайгч{" "}
-                </Text>
-              )}
+              >
+                <CheckBox
+                  center
+                  checkedIcon={
+                    <Fontisto
+                      name="checkbox-active"
+                      // type="material"
+                      color="#4682B4"
+                      size={18}
+                      iconStyle={{ marginRight: 10 }}
+                    />
+                  }
+                  uncheckedIcon={
+                    <Fontisto
+                      name="checkbox-passive"
+                      // type="material"
+                      color="grey"
+                      size={18}
+                      iconStyle={{ marginRight: 10 }}
+                    />
+                  }
+                  checked={isEmployee}
+                  onPress={() => setIsEmployee(!isEmployee)}
+                />
+                {isEmployee === false ? (
+                  <Text style={styles.checkBoxText}> Ажил хайгч</Text>
+                ) : (
+                  <Text
+                    style={{
+                      fontSize: 15,
+                      fontWeight: "500",
+                      right: 20,
+                      top: 15,
+                      color: "#4682B4",
+                    }}
+                  >
+                    {" "}
+                    Ажил хайгч
+                  </Text>
+                )}
+              </TouchableOpacity>
             </View>
           </View>
           <View style={{ flex: 1 }}>
-            <TouchableOpacity style={{ flex: 1 }} onPress={signUpHandler}>
+            <TouchableOpacity
+              style={{ flex: 1, bottom: 20 }}
+              onPress={signUpHandler}
+            >
               <ImageBackground
                 source={require("../../assets/ihelp/companybutton.png")}
                 style={{ height: 100 }}
@@ -277,7 +302,7 @@ const CompanyRegisterScreen = () => {
                 textAlign: "center",
                 fontSize: 15,
                 position: "absolute",
-                top: 100,
+                top: 80,
                 alignSelf: "center",
               }}
             >

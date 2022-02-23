@@ -7,16 +7,16 @@
       [
          "expo-notifications",
          {
-             "icon": "./assets/ihelp/logo.png",
+             "icon": "./assets/images/icon.png",
              "color": "#ffffff"
          }
       ]
    ],
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "image": "./assets/images/splashscreen.png",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
