@@ -32,7 +32,7 @@ const CompanyRegisterScreen = () => {
   const [point] = useState(50);
   const signUpHandler = () => {
     if (password !== password1) {
-      Alert.alert("Нууц үгнүүд хоорондоо таарахгүй байна!");
+      Alert.alert("Нууц үгнүүд хоорондоо таарахгүй байна");
       return;
     }
     if (password.length < 6) {
@@ -141,32 +141,32 @@ const CompanyRegisterScreen = () => {
           <View>
             <Text style={styles.inputHeadText}>Компанийн нэр:</Text>
             <MyTextInput
-              placeholder="Өөрийн нэрээ оруулна уу!"
+              placeholder="Өөрийн нэрээ оруулна уу"
               value={name}
               onChangeText={setName}
             />
             <Text style={styles.inputHeadText}>Утас:</Text>
             <MyTextInput
-              placeholder="Утасны дугаараа оруулна уу!"
+              placeholder="Утасны дугаараа оруулна уу"
               value={phone}
               onChangeText={setPhone}
             />
             <Text style={styles.inputHeadText}>И-мэйл хаяг:</Text>
             <MyTextInput
-              placeholder="И-мэйл хаягаа оруулна уу!"
+              placeholder="И-мэйл хаягаа оруулна уу"
               value={email}
               onChangeText={setEmail}
             />
             <Text style={styles.inputHeadText}>Нууц үг:</Text>
             <MyTextInput
-              placeholder="Нууц үгээ оруулна уу!"
+              placeholder="Нууц үгээ оруулна уу"
               value={password}
               onChangeText={setPassword}
               secureTextEntry={true}
             />
             <Text style={styles.inputHeadText}>Нууц үг бататгах:</Text>
             <MyTextInput
-              placeholder="Нууц үгээ дахин оруулна уу!"
+              placeholder="Нууц үгээ дахин оруулна уу"
               value={password1}
               onChangeText={setPassword1}
               secureTextEntry={true}

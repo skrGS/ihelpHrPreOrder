@@ -122,13 +122,13 @@ const CompanyLoginScreen = () => {
           <View>
             <Text style={styles.inputHeadText}>И-мэйл хаяг:</Text>
             <MyTextInput
-              placeholder="И-мэйл хаягаа оруулна уу!"
+              placeholder="И-мэйл хаягаа оруулна уу"
               value={email}
               onChangeText={setEmail}
             />
             <Text style={styles.inputHeadText}>Нууц үг:</Text>
             <MyTextInput
-              placeholder="Нууц үгээ оруулна уу!"
+              placeholder="Нууц үгээ оруулна уу"
               value={password}
               onChangeText={setPassword}
               secureTextEntry={true}

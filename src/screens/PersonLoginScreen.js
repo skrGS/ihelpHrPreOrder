@@ -114,14 +114,14 @@ const PersonLoginScreen = () => {
           <View>
             <Text style={styles.inputHeadText}>Утас:</Text>
             <MyTextInput
-              placeholder="Утасны дугаараа оруулна уу!"
+              placeholder="Утасны дугаараа оруулна уу"
               value={phone}
               onChangeText={setPhone}
             />
 
             <Text style={styles.inputHeadText}>Нууц үг:</Text>
             <MyTextInput
-              placeholder="Нууц үгээ оруулна уу!"
+              placeholder="Нууц үгээ оруулна уу"
               value={password}
               onChangeText={setPassword}
               secureTextEntry={true}
