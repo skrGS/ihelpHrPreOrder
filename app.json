@@ -1,8 +1,17 @@
 {
   "expo": {
-    "name": "ihelpHRv1",
-    "slug": "ihelpHRv1",
+    "name": "ihelp",
+    "slug": "ihelp",
     "version": "1.0.0",
+    "plugins": [
+      [
+         "expo-notifications",
+         {
+             "icon": "./assets/ihelp/logo.png",
+             "color": "#ffffff"
+         }
+      ]
+   ],
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -17,16 +26,21 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "mn.ihelp.hr",
+      "buildNumber": "1.0.0"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+      },
+      "versionCode": 1,
+      "package": "mn.ihelp.hr",
+      "permissions": [],
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "useNextNotificationsApi": true
     }
+   
   }
 }
