@@ -18,6 +18,7 @@ import { api } from "../../Constants";
 import { AntDesign } from "@expo/vector-icons";
 import { Button, Overlay, Icon, CheckBox } from "react-native-elements";
 import { Fontisto } from "@expo/vector-icons";
+import * as Animatable from "react-native-animatable";
 const CompanyRegisterScreen = () => {
   const navigation = useNavigation();
   const [visible, setVisible] = useState(false);
@@ -104,7 +105,11 @@ const CompanyRegisterScreen = () => {
           style={{ flex: 1, height: 220 }}
           resizeMode="cover"
         >
-          <Image
+          <Animatable.Image
+            animation="pulse"
+            iterationCount="infinite"
+            direction="alternate"
+            easing="ease-out"
             source={require("../../assets/ihelp/logo.png")}
             style={{ width: 250, height: 90, alignSelf: "center", top: 65 }}
           />
@@ -137,36 +142,24 @@ const CompanyRegisterScreen = () => {
           </View>
         </ImageBackground>
 
-        <View style={{ bottom: 11, flex: 1 }}>
+        <View style={{ flex: 1, top: 10 }}>
           <View>
             <Text style={styles.inputHeadText}>Компанийн нэр:</Text>
-            <MyTextInput
-              placeholder="Өөрийн нэрээ оруулна уу"
-              value={name}
-              onChangeText={setName}
-            />
-            <Text style={styles.inputHeadText}>Утас:</Text>
-            <MyTextInput
-              placeholder="Утасны дугаараа оруулна уу"
-              value={phone}
-              onChangeText={setPhone}
-            />
+            <MyTextInput value={name} onChangeText={setName} />
+            <Text style={styles.inputHeadText}>Утасны дугаар:</Text>
+            <MyTextInput value={phone} onChangeText={setPhone} />
             <Text style={styles.inputHeadText}>И-мэйл хаяг:</Text>
+            <MyTextInput value={email} onChangeText={setEmail} />
+            <Text style={styles.inputHeadText}>
+              Нууц үг ( 6-с их тэмдэгт ):
+            </Text>
             <MyTextInput
-              placeholder="И-мэйл хаягаа оруулна уу"
-              value={email}
-              onChangeText={setEmail}
-            />
-            <Text style={styles.inputHeadText}>Нууц үг:</Text>
-            <MyTextInput
-              placeholder="Нууц үгээ оруулна уу"
               value={password}
               onChangeText={setPassword}
               secureTextEntry={true}
             />
             <Text style={styles.inputHeadText}>Нууц үг бататгах:</Text>
             <MyTextInput
-              placeholder="Нууц үгээ дахин оруулна уу"
               value={password1}
               onChangeText={setPassword1}
               secureTextEntry={true}

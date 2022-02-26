@@ -17,6 +17,7 @@ import axios from "axios";
 import { api } from "../../Constants";
 import { AntDesign } from "@expo/vector-icons";
 import { Button, Overlay } from "react-native-elements";
+import * as Animatable from "react-native-animatable";
 
 const CompanyLoginScreen = () => {
   const navigation = useNavigation();
@@ -85,7 +86,11 @@ const CompanyLoginScreen = () => {
           style={{ flex: 1, height: 220 }}
           resizeMode="cover"
         >
-          <Image
+          <Animatable.Image
+            animation="pulse"
+            iterationCount="infinite"
+            direction="alternate"
+            easing="ease-out"
             source={require("../../assets/ihelp/logo.png")}
             style={{ width: 250, height: 90, alignSelf: "center", top: 65 }}
           />
@@ -118,17 +123,12 @@ const CompanyLoginScreen = () => {
           </View>
         </ImageBackground>
 
-        <View style={{ bottom: 11, flex: 1 }}>
+        <View style={{ top: 10, flex: 1 }}>
           <View>
             <Text style={styles.inputHeadText}>И-мэйл хаяг:</Text>
-            <MyTextInput
-              placeholder="И-мэйл хаягаа оруулна уу"
-              value={email}
-              onChangeText={setEmail}
-            />
+            <MyTextInput value={email} onChangeText={setEmail} />
             <Text style={styles.inputHeadText}>Нууц үг:</Text>
             <MyTextInput
-              placeholder="Нууц үгээ оруулна уу"
               value={password}
               onChangeText={setPassword}
               secureTextEntry={true}
@@ -136,7 +136,7 @@ const CompanyLoginScreen = () => {
           </View>
           <View style={{ flex: 1 }}>
             <TouchableOpacity
-              style={{ flex: 1, bottom: 20 }}
+              style={{ flex: 1, top: 5 }}
               onPress={signUpHandler}
             >
               <ImageBackground
@@ -160,7 +160,7 @@ const CompanyLoginScreen = () => {
                 textAlign: "center",
                 fontSize: 15,
                 position: "absolute",
-                top: 80,
+                top: 100,
                 alignSelf: "center",
               }}
             >

@@ -18,6 +18,7 @@ import { api } from "../../Constants";
 import { AntDesign } from "@expo/vector-icons";
 import { Button, Overlay, Icon, CheckBox } from "react-native-elements";
 import { Fontisto } from "@expo/vector-icons";
+import * as Animatable from "react-native-animatable";
 
 const PersonRegisterScreen = () => {
   const navigation = useNavigation();
@@ -113,7 +114,11 @@ const PersonRegisterScreen = () => {
           style={{ flex: 1, height: 220 }}
           resizeMode="cover"
         >
-          <Image
+          <Animatable.Image
+            animation="pulse"
+            iterationCount="infinite"
+            direction="alternate"
+            easing="ease-out"
             source={require("../../assets/ihelp/logo.png")}
             style={{ width: 250, height: 90, alignSelf: "center", top: 65 }}
           />
@@ -146,42 +151,44 @@ const PersonRegisterScreen = () => {
           </View>
         </ImageBackground>
 
-        <View style={{ bottom: 11, flex: 1 }}>
+        <View style={{ top: 10, flex: 1 }}>
           <View>
             <Text style={styles.inputHeadText}>Овог:</Text>
             <MyTextInput
-              placeholder="Овог оруулна уу"
+              // placeholder="Ж/нь: Бат"
               value={lastName}
               onChangeText={setLastName}
             />
             <Text style={styles.inputHeadText}>Нэр:</Text>
             <MyTextInput
-              placeholder="Өөрийн нэрээ оруулна уу"
+              // placeholder="Ж/нь: Бат агуу"
               value={firstName}
               onChangeText={setFirstName}
             />
-            <Text style={styles.inputHeadText}>Утас:</Text>
+            <Text style={styles.inputHeadText}>Утасны дугаар:</Text>
             <MyTextInput
-              placeholder="Утасны дугаараа оруулна уу"
+              // placeholder="Ж/нь: 99999999"
               value={phone}
               onChangeText={setPhone}
             />
             <Text style={styles.inputHeadText}>И-мэйл хаяг:</Text>
             <MyTextInput
-              placeholder="И-мэйл хаягаа оруулна уу"
+              // placeholder="Ж/нь: amazon@gmail.com"
               value={email}
               onChangeText={setEmail}
             />
-            <Text style={styles.inputHeadText}>Нууц үг:</Text>
+            <Text style={styles.inputHeadText}>
+              Нууц үг ( 6-с их тэмдэгт ):
+            </Text>
             <MyTextInput
-              placeholder="Нууц үгээ оруулна уу"
+              // placeholder="123456"
               value={password}
               onChangeText={setPassword}
               secureTextEntry={true}
             />
             <Text style={styles.inputHeadText}>Нууц үг бататгах:</Text>
             <MyTextInput
-              placeholder="Нууц үгээ дахин оруулна уу"
+              // placeholder="123456"
               value={password1}
               onChangeText={setPassword1}
               secureTextEntry={true}
@@ -319,6 +326,7 @@ const PersonRegisterScreen = () => {
                 position: "absolute",
                 top: 80,
                 alignSelf: "center",
+                paddingBottom: 100,
               }}
             >
               Нэвтрэх бол{" "}
